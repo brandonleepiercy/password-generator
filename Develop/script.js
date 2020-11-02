@@ -62,6 +62,25 @@ console.log(getRandomUpper());
 console.log(getRandomNumber());
 console.log(getRandomSymbol());
 
+function generatePassword(upperChoice,lowerChoice,numChoice,specialChoice) {
+  var functionsArray = [];
+  if (upperChoice=true) {
+    functionsArray.push(getRandomUpper);
+  }; 
+  
+  if (lowerChoice=true) {
+    functionsArray.push(getRandomLower);
+  };
+  if (numChoice=true) {
+    functionsArray.push(getRandomNumber);
+  }; 
+  if (specialChoice=true) {
+    functionsArray.push(getRandomSymbol);
+  }; 
+
+  console.log(functionsArray);
+};
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
