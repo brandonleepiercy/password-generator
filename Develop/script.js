@@ -63,26 +63,30 @@ console.log(getRandomNumber());
 console.log(getRandomSymbol());
 
 function generatePassword(upperChoice,lowerChoice,numChoice,specialChoice) {
+
+  console.log(upperChoice);
   var functionsArray = [];
-  if (upperChoice=true) {
+  if (upperChoice==true) {
     functionsArray.push(getRandomUpper);
-  }; 
+  } if (upperChoice==false) {};
   
-  if (lowerChoice=true) {
+  if (lowerChoice==true) {
     functionsArray.push(getRandomLower);
-  };
-  if (numChoice=true) {
+  } if (lowerChoice==false) {};
+
+  if (numChoice==true) {
     functionsArray.push(getRandomNumber);
-  }; 
-  if (specialChoice=true) {
+  } if (numChoice==false) {}; 
+
+  if (specialChoice==true) {
     functionsArray.push(getRandomSymbol);
-  }; 
+  } if (specialChoice==false) {};
 
   console.log(functionsArray);
 };
 
 // Write password to the #password input
-function writePassword() {
+function writePassword(upperChoice,lowerChoice,numChoice,specialChoice) {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
