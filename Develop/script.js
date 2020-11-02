@@ -14,6 +14,28 @@ console.log(upperSplit);
 console.log(numSplit);
 console.log(specialSplit);
 
+var passLength = prompt("How many characters long would you like your password to be? (You must pick a value higher than 7 and lower than 129)");
+
+if (passLength<8) {
+  alert("Your password must be at least 8 characters");
+  var passLength = prompt("How many characters long would you like your password to be? (You must pick a value higher than 7 and lower than 129)");
+} if (passLength>128) {
+  alert("Your password cannot be longer than 128 characters");
+  var passLength = prompt("How many characters long would you like your password to be? (You must pick a value higher than 7 and lower than 129)");
+} else {};
+
+console.log(passLength);
+
+var upperChoice = confirm("Do you want upper case letters? (Ok for yes, and cancel for no)");
+var lowerChoice = confirm("Do you want lower case letters? (Ok for yes, and cancel for no)");
+var numChoice = confirm("Do you want numbers in your password? (Ok for yes, and cancel for no)");
+var specialChoice = confirm("Do you want special characters in your password? (For example: ! or & or , etc.) (Ok for yes, and cancel for no)");
+
+console.log(upperChoice);
+console.log(lowerChoice);
+console.log(numChoice);
+console.log(specialChoice);
+
 
 
 // Write password to the #password input
