@@ -1,18 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowerCase = ["abcdefghijklmnopqrstuvwxyz"];
-var upperCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-var numbers = ["0123456789"];
-var specialChar = [" !#$%&'()*+,-./:;<=>?@[]\^_`{}|~"];
-var lowerSplit = lowerCase.toString().split("");
-var upperSplit = upperCase.toString().split("");
-var numSplit = numbers.toString().split("");
-var specialSplit = specialChar.toString().split("");
-
-console.log(lowerSplit);
-console.log(upperSplit);
-console.log(numSplit);
-console.log(specialSplit);
 
 var passLength = prompt("How many characters long would you like your password to be? (You must pick a value higher than 7 and lower than 129)");
 
@@ -41,51 +28,39 @@ console.log(lowerChoice);
 console.log(numChoice);
 console.log(specialChoice);
 
-function getRandomLower() {
-  return lowerSplit[Math.floor(Math.random()*26)]
-};
-
-function getRandomUpper() {
-  return upperSplit[Math.floor(Math.random()*26)]
-};
-
-function getRandomNumber() {
-  return numSplit[Math.floor(Math.random()*10)]
-};
-
-function getRandomSymbol() {
-  return specialSplit[Math.floor(Math.random()*31)]
-};
-
-console.log(getRandomLower());
-console.log(getRandomUpper());
-console.log(getRandomNumber());
-console.log(getRandomSymbol());
-
 function generatePassword(upperChoice,lowerChoice,numChoice,specialChoice,passLength) {
+  var lowerCase = ["abcdefghijklmnopqrstuvwxyz"];
+  var upperCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+  var numbers = ["0123456789"];
+  var specialChar = [" !#$%&'()*+,-./:;<=>?@[]\^_`{}|~"];
+  var lowerSplit = lowerCase.toString().split("");
+  var upperSplit = upperCase.toString().split("");
+  var numSplit = numbers.toString().split("");
+  var specialSplit = specialChar.toString().split("");
   
-  var functionsArray = [];
+  var totalCharsArray = [];
   if (upperChoice==true) {
-    functionsArray.push(getRandomUpper());
+    totalCharsArray = totalCharsArray.concat(upperSplit);
   } if (upperChoice==false) {};
   
   if (lowerChoice==true) {
-    functionsArray.push(getRandomLower());
+    totalCharsArray = totalCharsArray.concat(lowerSplit);
   } if (lowerChoice==false) {};
 
   if (numChoice==true) {
-    functionsArray.push(getRandomNumber());
+    totalCharsArray = totalCharsArray.concat(numSplit);
   } if (numChoice==false) {}; 
 
   if (specialChoice==true) {
-    functionsArray.push(getRandomSymbol());
+    totalCharsArray = totalCharsArray.concat(specialSplit);
   } if (specialChoice==false) {};
+
+  console.log(totalCharsArray);
 
   var returnValue = "";
   var i;
   for (i=0; i < passLength; i++) {
-    console.log(functionsArray[Math.floor(Math.random()*functionsArray.length)]);
-    returnValue += functionsArray[Math.floor(Math.random()*functionsArray.length)];
+    returnValue += totalCharsArray[Math.floor(Math.random()*totalCharsArray.length)];
   };
 
   return returnValue;
