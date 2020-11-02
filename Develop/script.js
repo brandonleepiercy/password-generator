@@ -31,12 +31,36 @@ var lowerChoice = confirm("Do you want lower case letters? (Ok for yes, and canc
 var numChoice = confirm("Do you want numbers in your password? (Ok for yes, and cancel for no)");
 var specialChoice = confirm("Do you want special characters in your password? (For example: ! or & or , etc.) (Ok for yes, and cancel for no)");
 
+if (upperChoice===false && lowerChoice===false && numChoice===false && specialChoice===false) {
+  alert("You must to select a paramenter, try again");
+  location.reload();
+};
+
 console.log(upperChoice);
 console.log(lowerChoice);
 console.log(numChoice);
 console.log(specialChoice);
 
+function getRandomLower() {
+  return lowerSplit[Math.floor(Math.random()*26)]
+};
 
+function getRandomUpper() {
+  return upperSplit[Math.floor(Math.random()*26)]
+};
+
+function getRandomNumber() {
+  return numSplit[Math.floor(Math.random()*10)]
+};
+
+function getRandomSymbol() {
+  return specialSplit[Math.floor(Math.random()*31)]
+};
+
+console.log(getRandomLower());
+console.log(getRandomUpper());
+console.log(getRandomNumber());
+console.log(getRandomSymbol());
 
 // Write password to the #password input
 function writePassword() {
